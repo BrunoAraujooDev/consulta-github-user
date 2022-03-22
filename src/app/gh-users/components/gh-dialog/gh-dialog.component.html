@@ -1,0 +1,29 @@
+<section class="wrapper">
+    <h1 mat-dialog-title> {{user == null ?'Procurando usuário: ' + username :  username}} </h1>
+    <div mat-dialog-content>
+        <mat-progress-spinner color="accent" mode="indeterminate" *ngIf="user == null; else content"></mat-progress-spinner>
+        <ng-template #content>
+            <figure class="img-perfil">
+                <img [src]="user?.avatar_url" alt="Foto de perfil do usuário no github">
+            </figure>
+            <div>
+                <p><b>Usuário: </b>{{user?.login}}</p>
+                <p><b>Nome: </b> <a [href]="user?.html_url" target="_blank"> <u>{{user?.name}}</u> </a></p>
+                <p><b>Bio:</b> {{user?.bio}} </p>
+                <p><b>Localização:</b> {{user?.location}} </p>
+                <p><b>Total de seguidores:</b> {{user?.followers}} </p>
+                <p><b>Seguindo:</b> {{user?.following}} </p>
+                <p><b>Conta criada em:</b> {{dataCriacao}} </p>
+                <p><b>Última atualização:</b> {{dataAtt}} </p>
+            </div>
+            <h2>Repositórios</h2>
+            <mat-card class="card-repo" *ngFor="let item of repo">
+                <p><b>Nome do repositório: </b> <a [href]="item?.html_url">{{item?.name}}</a></p>
+                <p><b>Descrição: </b> {{item?.description}} </p>
+                <p><b>Quantidade de forks: </b> {{item?.forks_count}}</p>
+                <p><b>Criado em: </b> {{pegarData(item.created_at)}} </p>
+                <p><b>Última atualização: </b> {{pegarData(item.updated_at)}} </p>
+            </mat-card>
+        </ng-template>
+    </div>
+</section>

@@ -1,0 +1,33 @@
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 700px;
+    padding: 10px 15px;
+}
+
+h1{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+
+.img-perfil{
+    height: 460px;
+    width: 100%;
+}
+
+.card-repo{
+    background-color: #eee;
+    margin-bottom: 2rem;
+}
+
+b{
+    margin-right: 2px;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+}
