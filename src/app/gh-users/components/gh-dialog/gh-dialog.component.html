@@ -13,8 +13,8 @@
                 <p><b>Localização:</b> {{user?.location}} </p>
                 <p><b>Total de seguidores:</b> {{user?.followers}} </p>
                 <p><b>Seguindo:</b> {{user?.following}} </p>
-                <p><b>Conta criada em:</b> {{dataCriacao}} </p>
-                <p><b>Última atualização:</b> {{dataAtt}} </p>
+                <p><b>Conta criada em:</b> {{user?.created_at}} </p>
+                <p><b>Última atualização:</b> {{user?.updated_at}} </p>
             </div>
             <h2>Repositórios</h2>
             <mat-card class="card-repo" *ngFor="let item of repo">

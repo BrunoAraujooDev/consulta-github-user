@@ -14,10 +14,6 @@ export class GhDialogComponent implements OnInit {
   username: string = ''
   user!: GhUser
   repo!: GhRepo[]
-  dataAtt: string | null = null
-  dataCriacao: string | null = null
-  dataRepoAtt: string | null = null
-  dataRepoCriacao: string | null = null
 
 
   constructor(
@@ -25,39 +21,39 @@ export class GhDialogComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+
     this.ghService.findUser(this.username).subscribe(
       (usuario) => {
         this.user = usuario
 
-        this.dataCriacao = this.pegarData(new Date(this.user.created_at))
-        this.dataAtt = this.pegarData(new Date(this.user.updated_at))
+        this.user.created_at = this.pegarData(this.user.created_at)
+        this.user.updated_at = this.pegarData(this.user.updated_at)
         
       }, (e) => console.log('O erro foi: ' + e)
-      
     )
 
-      this.ghService.findUserRepo(this.username).subscribe(
-        (dados) => {
-          this.repo = dados
-          console.log('dados', dados)
+    this.ghService.findUserRepo(this.username).subscribe(
+      (dados) => {
 
-          // this.dataRepoCriacao = this.pegarData(Date.parse(this.repo.created_at))
-        //   this.dataRepoAtt = this.pegarData(new Date(this.repo.updated_at))
-         }
-      )
+        this.repo = dados
 
+        }, (e) => console.log('O erro foi: ' + e)
+    )
   }
 
-  pegarData(data: string | Date): string {
-    const date = new Date(data)
+  pegarData(data: string): string {
+
+    const date = new Date(data);
 
     let datas = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
 
-    let dia = date.getDate()
-    let mes = date.getMonth()
-    let ano = date.getFullYear()
+    let dia = date.getDate();
+    let diaAjustado = dia >= 10 ? dia : `0${dia}`;
+    
+    let mes = date.getMonth();
+    let ano = date.getFullYear();
 
-    const dataArray = [dia >= 10 ? dia : `0${dia}`, datas[mes], ano]
+    const dataArray = [diaAjustado, datas[mes], ano]
     let dataFinal = dataArray.join('/')
 
     return dataFinal
