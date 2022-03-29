@@ -1,7 +1,7 @@
 <div class="container">
     <div class="search">
         <mat-form-field appearance="outline">
-            <mat-label>Pesquise por um usuário do Github</mat-label>
+            <mat-label class="mat-wrapper">Pesquise por um usuário do Github</mat-label>
             <input 
                 type="text"
                 matInput
@@ -9,7 +9,7 @@
                 (keyup.enter)="showDialog()"
             >
             <mat-error>
-                Informe um username para ser pesquisado!
+                Informe um nome de usuário para ser pesquisado!
             </mat-error>
         </mat-form-field>
         <button 

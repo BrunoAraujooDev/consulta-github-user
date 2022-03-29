@@ -2,8 +2,7 @@
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
-    /* background: #673AB7; */
+    align-items: center;   
 }
 
 .container .search{
@@ -11,3 +10,5 @@
     flex-direction: column;
     width: 400px;
 }
+
+

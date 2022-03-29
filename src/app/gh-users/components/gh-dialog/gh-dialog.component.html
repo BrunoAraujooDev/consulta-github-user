@@ -18,9 +18,10 @@
             </div>
             <h2>Repositórios</h2>
             <mat-card class="card-repo" *ngFor="let item of repo">
-                <p><b>Nome do repositório: </b> <a [href]="item?.html_url">{{item?.name}}</a></p>
+                <p><b>Nome do repositório: </b> <a [href]="item?.html_url" target="_blank"><u>{{item?.name}}</u></a></p>
                 <p><b>Descrição: </b> {{item?.description}} </p>
-                <p><b>Quantidade de forks: </b> {{item?.forks_count}}</p>
+                <p><b>Linguagens utilizadas: </b> {{item?.language}} </p>
+                <p><b>Quantidade de estrelas: </b> {{item?.stargazers_count}}</p>
                 <p><b>Criado em: </b> {{pegarData(item.created_at)}} </p>
                 <p><b>Última atualização: </b> {{pegarData(item.updated_at)}} </p>
             </mat-card>

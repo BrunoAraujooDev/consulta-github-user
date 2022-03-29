@@ -18,7 +18,7 @@ export class GhHomeComponent implements OnInit {
   }
 
   showDialog(): void{
-    let ref = this.dialog.open(GhDialogComponent, {width: '600px'})
+    let ref = this.dialog.open(GhDialogComponent, {width: '600px',})
 
     ref.componentInstance.username = this.usernameToFind.value
     
